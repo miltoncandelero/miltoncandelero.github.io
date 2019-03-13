@@ -14,3 +14,6 @@ disqus:
 
 url:              https://miltoncandelero.github.io
 #baseurl:          '/'
+
+plugins:
+  - jemoji
