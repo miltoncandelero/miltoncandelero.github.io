@@ -8,3 +8,6 @@ author:
   name:           'Milton Candelero'
   
 paginate: 5
+
+disqus:
+  shortname: elemental-code
