@@ -1,4 +1,10 @@
 remote_theme: fongandrew/hydeout
 
 title:            'Elemental Code'
-tagline:          'Lets solve problems by creating bigger problems!'
+tagline:          'A game development blog'
+description:      'Let&#39;s solve problems by creating bigger problems!'
+
+author:
+  name:           'Milton Candelero'
+  
+
