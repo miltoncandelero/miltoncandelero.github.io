@@ -2,7 +2,7 @@
 layout: post
 title: "My first blog post and also a template"
 sub_title: "This will be my template"
-excerpt: "You will see only this before clicking. This is the clickbait."
+excerpt_separator: "<!--more-->"
 categories:
   - OpenFL
 elements:
@@ -11,6 +11,10 @@ elements:
   - vscode
   - game development
 ---
+This is the beginning of the post. here I hook you in with something silly and funny and then
+
+<!--more-->
+
 
 This is my post
 
