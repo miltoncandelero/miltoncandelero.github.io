@@ -13,4 +13,4 @@ disqus:
   shortname: elemental-code
 
 url:              https://miltoncandelero.github.io
-baseurl:          '/'
+#baseurl:          '/'
