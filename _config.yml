@@ -11,3 +11,6 @@ paginate: 5
 
 disqus:
   shortname: elemental-code
+
+url:              https://miltoncandelero.github.io
+baseurl:          '/'
