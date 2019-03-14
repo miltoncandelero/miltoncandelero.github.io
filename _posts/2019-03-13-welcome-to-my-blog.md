@@ -2,7 +2,7 @@
 layout: post
 title: "Welcome to my blog"
 sub_title: "What have you getten yourself into?"
-excerpt: "This is a blog about game development. Mainly focused on Haxe/OpenFL and targeting the HTML5.\n\nThis is also maybe not the *best* place to learn Haxe/OpenFL from scratch.\n\nHere we will tackle simple problems by creating even bigger problems and hoping they kill each other\n\nIf you want to know more about me, keep reading\n\n"
+excerpt: "This is a blog about game development. Mainly focused on Haxe/OpenFL and targeting the HTML5.<br>This is also maybe not the *best* place to learn Haxe/OpenFL from scratch.<br>Here we will tackle simple problems by creating even bigger problems and hoping they kill each other<br>If you want to know more about me, keep reading<br>"
 categories:
   - Other
 tags:
