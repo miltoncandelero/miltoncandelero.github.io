@@ -29,6 +29,7 @@ But you already clicked so let me show you two ways of achieving something simil
 ### Matrix transformations
 All DisplayObjects in OpenFL have a 3x3 Transformation Matrix associated to them.  
 The matrix looks like this:  
+
 |  a |  b | u |
 |  c |  d | v |
 | tx | ty | w |
@@ -39,6 +40,7 @@ Well, I kinda lied since `u` `v` and `w` don't really exist and can't be used, s
 |    a ScaleX   |    b Skew Y   |
 |    c Skew X   |    d ScaleY   |
 | tx Position X | ty Position Y |
+
 *(I have actually a post-it with this reference matrix on my screen)*
 
 But I hear you saying: *Hey, there is no "Rotation" field on your matrix. Why are you talking about this thing if it can't rotate?*  
@@ -54,7 +56,7 @@ Things only get more complicated from here if we want to apply multiple transfor
 [To learn an awful lot about matrix, check this awesome post. (You will need to enable Flash to see the examples)](http://www.senocular.com/flash/tutorials/transformmatrix/)   
 
 So, let me put a big chunk of code and then explain to you what it does.
-```as3
+```js
 public function rotateAroundPoint(object:DisplayObject, center:Point, angleDegrees:Float)
 {
     //We get the matrix to carry on all the previous transforms that could be going on before this rotation
