@@ -70,7 +70,7 @@ public function rotateAroundPoint(object:DisplayObject, center:Point, angleDegre
   // We get the matrix to carry on all the previous transforms that could be going on before this rotation
   var matrix:Matrix = object.transform.matrix;
 
-  //Convert our relative point to absolute
+  //This fixes what does that point mean if you have scaled the object.
   center = matrix.transformPoint(center);
 
   // We "move" the center
