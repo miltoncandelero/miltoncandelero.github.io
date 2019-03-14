@@ -5,7 +5,7 @@ sub_title: "Rotate and scale are two big enemies when working with OpenFL"
 excerpt_separator: "<!--more-->"
 categories:
   - OpenFL
-elements:
+tags:
   - openfl
   - haxe
   - game development
