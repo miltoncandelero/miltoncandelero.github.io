@@ -73,6 +73,8 @@ public function rotateAroundPoint(object:DisplayObject, center:Point, angleDegre
 }
 ```
 
+$ \nabla_\boldsymbol{x} J(\boldsymbol{x}) $
+
 woah code.
 
 
