@@ -48,8 +48,9 @@ Position X & Position Y & 1
 
 *(I have actually a post-it with this reference matrix on my screen)*
 
-But I hear you saying: *Hey, there is no "Rotation" field on your matrix. Why are you talking about this thing if it can't rotate?*  
-Well, the thing is that rotation is a crazy combination of all the fields. Rotation is achieved with a matrix that looks like this:
+Let's tackle a simple problem: You want to rotate your sprite arround a point that is not the default `0,0` top-left anchor.  
+But there is no field *rotation* on that matrix!  
+The rotation is achieved with a matrix that looks like this:
 
 $$ \begin{bmatrix}
 \cos(\alpha) & \sin(\alpha) & 0\\
@@ -60,7 +61,7 @@ $$ \begin{bmatrix}
 Whenever you touch the `rotation` variable on your `DisplayObject` OpenFL does all that crazy matrix transformations for you.
 
 Things only get more complicated from here if we want to apply multiple transformations to an object. Luckily the Matrix class has some methods to modify a matrix without knowing the exact matrix math.  
-[To learn an awful lot about matrix, check this awesome post. (You will need to enable Flash to see the examples)](http://www.senocular.com/flash/tutorials/transformmatrix/)   
+[To learn a lot about matrices, check this awesome post. (You will need to enable Flash to see the examples)](http://www.senocular.com/flash/tutorials/transformmatrix/)   
 
 So, let me put a big chunk of code.
 ```js
@@ -89,14 +90,15 @@ public function rotateAroundPoint(object:DisplayObject, center:Point, angleDegre
 The fact that the Matrix object has the `translate` and `rotate` methods saves us from having to do Matrix Math.
 
 Testing this you might realize something: **This doesn't *set* an angle, this just adds that angle to whatever angle we had before!**  
-This is for the simple reason that we don't know which point was used to rotate the object the time before this one, to fix the rotation and be able to *"set"* an angle
-
-The advantage of this method is that whenever we can choose a new point for rotation and *give it a spin* and it will work.
+On top of that, this only works for rotation! What if I want to scale or move using an anchor point?   
+Well, matrix math will get more and more complicated. That's why I use and recommend the next method...
 
 ---
 
 ## Abusing the Parent-Child relationships.
 *Things got darker than what I expected* 😐
+
+We are going to *abuse* the fact that a parent transformation cascades to all his childrens. Think of it as stacking trays or pinning together squares of paper with thumbtacks.
 
 Let's begin with *Display List 101*:
 * Everything that is drawn on screen was added as a child of a `Display Object Container`.
@@ -105,6 +107,8 @@ Let's begin with *Display List 101*:
   * The class `Bitmap` is **not** a container.
 * A `Display Object Container` will transform all his childs relative to itself.
   * Moving, scaling and **rotating** a parent will affect his children.
+
+*(If this whole "DisplayList" thing is confusing you, I might suggest seeing a [basic tutorial](http://www.republicofcode.com/tutorials/flash/as3displaylist/) to understand how it works)*
 
 With those basics, have a look at this code.
 
