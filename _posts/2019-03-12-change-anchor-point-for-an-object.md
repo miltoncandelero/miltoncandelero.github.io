@@ -26,7 +26,7 @@ But you already clicked so let me show you two ways of achieving something simil
 * Matrix transformations. *(The hard and super Math heavy way)*
 * Abusing the Parent-Child relationships. *(The simple and no-brainer way)*
 
-### Matrix transformations
+## Matrix transformations
 All DisplayObjects in OpenFL have a 3x3 Transformation Matrix associated to them.  
 The matrix looks like this:  
 
@@ -94,7 +94,7 @@ The advantage of this method is that whenever we can choose a new point for rota
 
 ---
 
-### Abusing the Parent-Child relationships.
+## Abusing the Parent-Child relationships.
 *Things got darker than what I expected* 😐
 
 Let's begin with *Display List 101*:
