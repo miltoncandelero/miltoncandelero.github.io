@@ -20,7 +20,7 @@ These are some of the games we've done
 
 ---
 
-#And now, question that nobody asked!
+# And now, question that nobody asked!
 
 ## Why a blog?
 I realized that a lot of the knowledge I got by banging rocks together could be useful for other people.  
