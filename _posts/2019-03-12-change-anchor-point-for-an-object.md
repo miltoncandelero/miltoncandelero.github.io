@@ -19,7 +19,7 @@ But... there must be a simple way to set the anchor right?... Right? 😰
 
 <!--more-->
 
-Well, sadly the answer is **no**
+Well, sadly the answer is **no**  
 There is no simple way of setting the anchor of a DisplayObject in a simple variable and forget about it.
 
 But you already clicked so let me show you two ways of achieving something similar!
