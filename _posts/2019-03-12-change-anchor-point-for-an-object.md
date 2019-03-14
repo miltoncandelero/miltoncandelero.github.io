@@ -51,8 +51,8 @@ But I hear you saying: *Hey, there is no "Rotation" field on your matrix. Why ar
 Well, the thing is that rotation is a crazy combination of all the fields. Rotation is achieved with a matrix that looks like this:
 
 $$ \begin{bmatrix}
-\cosine(\alpha) & \sine(\alpha) & 0\\
--\sine(\alpha) & \cosine(\alpha) & 0\\
+\cos(\alpha) & \sin(\alpha) & 0\\
+-\sin(\alpha) & \cos(\alpha) & 0\\
 0 & 0 & 1 
 \end{bmatrix}  $$
 
