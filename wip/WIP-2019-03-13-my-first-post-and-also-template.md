@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "My first blog post and also a template"
 sub_title: "This will be my template"
 excerpt_separator: "<!--more-->"
