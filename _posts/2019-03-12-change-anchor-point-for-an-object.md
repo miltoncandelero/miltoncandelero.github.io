@@ -12,7 +12,7 @@ elements:
 ---
 You have your graphic, you just need to rotate it 90º. You set the rotation variable and.... Wait... where did it go?
 
-Well, your playtformer character has to turn arround, just set scaleX to -1 and.... Wait... why did it step left?
+Your platformer character has to turn arround, just set scaleX to -1 and.... Wait... why did it step left?
 
 If this is you, you are probably suffering from the fact that the anchor point for all objects in OpenFL is located on the top-left-most point of it.  
 But... there must be a simple way to set the anchor right?... Right? 😰
@@ -25,6 +25,7 @@ There is no simple way of setting the anchor of a DisplayObject in a simple vari
 But you already clicked so let me show you two ways of achieving something similar!
 * Matrix transformations. *(The hard and super Math heavy way)*
 * Abusing the Parent-Child relationships. *(The simple and no-brainer way)*
+  * Bonus track: Creating a class to easy set the anchor of Bitmaps
 
 ## Matrix transformations
 All DisplayObjects in OpenFL have a 3x3 Transformation Matrix associated to them.  
@@ -99,8 +100,9 @@ The advantage of this method is that whenever we can choose a new point for rota
 
 Let's begin with *Display List 101*:
 * Everything that is drawn on screen was added as a child of a `Display Object Container`.
-  * The Daddy of them all is an object called `stage`
-* The class `Sprite` is a wonderful `Display Object Container`
+  * The Daddy of them all is an object called `stage`.
+* The class `Sprite` is a wonderful `Display Object Container`.
+  * The class `Bitmap` is **not** a container.
 * A `Display Object Container` will transform all his childs relative to itself.
   * Moving, scaling and **rotating** a parent will affect his children.
 
@@ -151,6 +153,147 @@ b.y = - (anchorY);
 
 And then when we move the parent of `b` our *anchor* will be respected!
 
-woah code.
+---
+
+## Bonus track: Creating a class to easy set the anchor of Bitmaps
+Let's idealize a new `Bitmap` that has two magic variables: `anchorX` and `anchorY`.  
+We saw earlier, we just need to put our object inside a container and move the object inside to the left and up to match our desired anchor point to the `0,0` coordinate of the container.
+
+So, let's make a new class that extends `Sprite`. This `Sprite` will be the "container" object.  
+Since it has to feel like `Bitmap` we will ask for the same parameters as `Bitmap` and create one and add it to the scene.  
+Also, we are going to take the two `anchor` parameters and apply them to the child bitmap.
+
+```js
+class Image extends Sprite
+{
+  //The child object. Our image
+  public var bitmap:Bitmap;
+
+  public function new (bitmapData:BitmapData = null, pixelSnapping:PixelSnapping = null, smoothing:Bool = false, anchorX:Float = 0, anchorY:Float = 0)
+  {
+    super();
+    //We create the image
+    bitmap = new Bitmap(bitmapData, pixelSnapping, smoothing);
+
+    //Set the anchor point to align with the parent 0,0 point
+    bitmap.x = -anchorX;
+    bitmap.y = -anchorY;
+
+    //And add it to the scene.
+    addChild(bitmap);
+  }
+}
+```
+
+And that could probably be all you need.  
+You create a new `Image` and set the anchor point of your image there and you are good-to-go!
+
+But... What if you want to change the anchor *after* you make the object?
+
+Well, we could make a function that takes the new anchor and moves the internal image to align again to the new anchor point...   
+Or we could use **setters** 😎
 
 
+```js
+class Image extends Sprite
+{
+  public var bitmap:Bitmap;
+  public var anchorY(default, set):Float;
+  public var anchorX(default, set):Float;
+
+  public function new (bitmapData:BitmapData = null, pixelSnapping:PixelSnapping = null, smoothing:Bool = false, anchorX:Float = 0, anchorY:Float = 0)
+  {
+    super();
+    bitmap = new Bitmap(bitmapData, pixelSnapping, smoothing);
+
+    //This is no longer needed since the setters will trigger from the next assign.
+    //bitmap.x = -anchorX;
+    //bitmap.y = -anchorY;
+    
+    //This will trigger our setters!
+    this.anchorX = anchorX;
+    this.anchorY = anchorY;
+
+    addChild(bitmap);
+  }
+
+  public var set_AnchorX(value:Float):Float
+  {
+    //Save the new value.
+    anchorX = value;
+    //Move the child to set the anchor.
+    bitmap.x = -anchorX;
+    //Setters must return the value assigned.
+    return value;
+  }
+
+  public var set_AnchorY(value:Float):Float
+  {
+    anchorY = value;
+    anchor.y = -anchorY;
+    return value;
+  }
+}
+```
+
+This is looking good. But you might note something: If we change the anchor point, the asset on screen will move since the anchor point now is in a different place.  
+Let's fix that by moving the container to counteract the change.  
+Our final class will look like this:
+
+```js
+class Image extends Sprite
+{
+  public var bitmap:Bitmap;
+
+  //We initialize this two values to zero as we will need the difference between the old anchor and the new anchor.
+  public var anchorY(default, set):Float = 0;
+  public var anchorX(default, set):Float = 0;
+
+  public function new (bitmapData:BitmapData = null, pixelSnapping:PixelSnapping = null, smoothing:Bool = false, anchorX:Float = 0, anchorY:Float = 0)
+  {
+    super();
+    bitmap = new Bitmap(bitmapData, pixelSnapping, smoothing);
+
+    //The setter will take care of applying the anchor
+    this.anchorX = anchorX;
+    this.anchorY = anchorY;
+
+    //we want the initial position of our object to be 0,0
+    x = y = 0;
+
+    addChild(bitmap);
+  }
+
+  public var set_AnchorX(value:Float):Float
+  {
+    if (anchorX == value) return value; //If the anchor didn't change, we don't do anything.
+
+    //Ok, read this next line carefully
+    x += value - anchorX
+    //We "MOVE" the parent container. Not just set X but increment it.
+    //The value - anchorX is "The amount we are moving to the right"
+    //If it is >0, we move the parent to the right since we will move the child to the left.
+    //If it is <0, we move the parent to the left since we will move the child to the right.
+
+    //Save the new value.
+    anchorX = value;
+    //Move the child to set the anchor.
+    bitmap.x = -anchorX;
+    //Setters must return the value assigned.
+    return value;
+  }
+
+  public var set_AnchorY(value:Float):Float
+  {
+    if (anchorY == value) return value;
+    y += value - anchorY;
+    anchorY = value;
+    anchor.y = -anchorY;
+    return value;
+  }
+}
+```
+
+So... by now you should be an expert rotator.  
+
+Hope you enjoyed this simple problem made complex. See you in the next one!
