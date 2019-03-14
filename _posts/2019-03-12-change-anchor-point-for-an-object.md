@@ -29,27 +29,27 @@ But you already clicked so let me show you two ways of achieving something simil
 ### Matrix transformations
 All DisplayObjects in OpenFL have a 3x3 Transformation Matrix associated to them.  
 The matrix looks like this:  
-
+```
 |  a |  b | u |
 |  c |  d | v |
 | tx | ty | w |
-
+```
 *Nice letters... but what do they mean?*  
 Well, I kinda lied since `u` `v` and `w` don't really exist and can't be used, so the matrix that you will use looks like this:
-
+```
 |    a ScaleX   |    b Skew Y   |
 |    c Skew X   |    d ScaleY   |
 | tx Position X | ty Position Y |
-
+```
 *(I have actually a post-it with this reference matrix on my screen)*
 
 But I hear you saying: *Hey, there is no "Rotation" field on your matrix. Why are you talking about this thing if it can't rotate?*  
 Well, the thing is that rotation is a crazy combination of all the fields. Rotation is achieved with a matrix that looks like this:
-
+```
 | cosine(angle) |  sine(angle)  |
 |  -sine(angle) | cosine(angle) |
 |       0       |       0       |
-
+```
 Whenever you touch the `rotation` variable on your `DisplayObject` OpenFL does all that crazy matrix transformations for you.
 
 Things only get more complicated from here if we want to apply multiple transformations to an object. Luckily the Matrix class has some methods to modify a matrix without knowing the exact matrix math.  
