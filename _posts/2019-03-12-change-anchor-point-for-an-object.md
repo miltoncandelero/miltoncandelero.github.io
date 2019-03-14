@@ -30,16 +30,20 @@ But you already clicked so let me show you two ways of achieving something simil
 All DisplayObjects in OpenFL have a 3x3 Transformation Matrix associated to them.  
 The matrix looks like this:  
 
-```|  a |  b | u |
-|  c |  d | v |
-| tx | ty | w |```
+$$ \begin{bmatrix}
+a & b & u \\
+c & d & v \\
+tx & ty & w 
+\end{bmatrix}  $$
 
 *Nice letters... but what do they mean?*  
 Well, I kinda lied since `u` `v` and `w` don't really exist and can't be used, so the matrix that you will use looks like this:
 
-```|    a ScaleX   |    b Skew Y   |
-|    c Skew X   |    d ScaleY   |
-| tx Position X | ty Position Y |```
+$$ \begin{bmatrix}
+a = Scale X & b Skew Y \\
+c = Skew X & d Scale Y \\
+tx = Position X & ty = Position Y 
+\end{bmatrix}  $$
 
 *(I have actually a post-it with this reference matrix on my screen)*
 
@@ -73,13 +77,7 @@ public function rotateAroundPoint(object:DisplayObject, center:Point, angleDegre
 }
 ```
 
-$$ \nabla_\boldsymbol{x} J(\boldsymbol{x}) $$
 
-$$ \begin{bmatrix}
-a & b & u \\
-c & d & v \\
-tx & ty & w 
-\end{bmatrix}  $$
 
 woah code.
 
