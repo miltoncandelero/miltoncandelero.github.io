@@ -73,7 +73,13 @@ public function rotateAroundPoint(object:DisplayObject, center:Point, angleDegre
 }
 ```
 
-$ \nabla_\boldsymbol{x} J(\boldsymbol{x}) $
+$$ \nabla_\boldsymbol{x} J(\boldsymbol{x}) $$
+
+$$ \begin{bmatrix}
+a & b & u \\
+c & d & v \\
+tx & ty & w 
+\end{bmatrix}  $$
 
 woah code.
 
