@@ -10,7 +10,6 @@ elements:
   - haxe
   - vscode
   - game development
-last_modified_at: 2017-03-09T14:25:52-05:00
 ---
 This is the beginning of the post. here I hook you in with something silly and funny and then
 

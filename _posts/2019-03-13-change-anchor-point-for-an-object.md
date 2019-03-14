@@ -9,7 +9,6 @@ elements:
   - openfl
   - haxe
   - game development
-last_modified_at: 2019-03-09T14:25:52-05:00
 ---
 You have your graphic, you just need to rotate it 90º. You set the rotation variable and.... Wait... where did it go?
 
