@@ -29,11 +29,11 @@ But you already clicked so let me show you two ways of achieving something simil
 ### Matrix transformations
 All DisplayObjects in OpenFL have a 3x3 Transformation Matrix associated to them.  
 The matrix looks like this:  
-```
+`
 |  a |  b | u |
 |  c |  d | v |
 | tx | ty | w |
-```
+`
 *Nice letters... but what do they mean?*  
 Well, I kinda lied since `u` `v` and `w` don't really exist and can't be used, so the matrix that you will use looks like this:
 ```
