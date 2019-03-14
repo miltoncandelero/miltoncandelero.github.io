@@ -54,7 +54,7 @@ Things only get more complicated from here if we want to apply multiple transfor
 [To learn an awful lot about matrix, check this awesome post. (You will need to enable Flash to see the examples)](http://www.senocular.com/flash/tutorials/transformmatrix/)   
 
 So, let me put a big chunk of code and then explain to you what it does.
-```haxe
+```as3
 public function rotateAroundPoint(object:DisplayObject, center:Point, angleDegrees:Float)
 {
     //We get the matrix to carry on all the previous transforms that could be going on before this rotation
