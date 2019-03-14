@@ -11,7 +11,7 @@ tags:
 I am Milton Candelero. I am a game programmer from Argentina.  
 A random name generator (circa 2007) generated the name *Elemental Code* and I took it as mine, so you can find me under that alias.
 
-Insert photo here :D
+-> <img src="/assets/images/me.jpg" alt="it's a me" width="200"/> <-
 
 I am currently working for an company called Killabunnies and I specialize in making Haxe/OpenFL HTML5 games.
 
