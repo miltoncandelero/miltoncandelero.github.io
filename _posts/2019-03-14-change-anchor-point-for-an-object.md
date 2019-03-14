@@ -10,13 +10,11 @@ tags:
   - haxe
   - game development
 ---
-You have your graphic, you just need to rotate it 90º. You set the rotation variable and.... Wait... where did it go?
-
-Your platformer character has to turn arround, just set scaleX to -1 and.... Wait... why did it step left?
+You have your graphic, you just need to rotate it 90º. You set the rotation variable and.... Wait... where did it go?   
+Your platformer character has to turn arround, just set scaleX to -1 and.... Wait... why did it step left?   
 
 If this is you, you are probably suffering from the fact that the anchor point for all objects in OpenFL is located on the top-left-most point of it.  
-But... there must be a simple way to set the anchor right?... Right? 😰
-
+But... there must be a simple way to set the anchor right?... Right? 😰  
 <!--more-->
 
 Well, sadly the answer is **no**  

@@ -7,15 +7,28 @@ categories:
   - Other
 tags:
 ---
-This is the beginning of the post. here I hook you in with something silly and funny and then
+# Who am I?
+I am Milton Candelero. I am a game programmer from Argentina.  
+A random name generator (circa 2007) generated the name *Elemental Code* and I took it as mine, so you can find me under that alias.
 
-<!--more-->
+Insert photo here :D
+
+I am currently working for an company called Killabunnies and I specialize in making Haxe/OpenFL HTML5 games.
+
+These are some of the games we've done
 
 
-This is my post
+---
 
-I love it even if it is ugly
+#And now, question that nobody asked!
 
-# Lets do something big here.
+## Why a blog?
+I realized that a lot of the knowledge I got by banging rocks together could be useful for other people.  
 
-aaaand we are done.
+## Why raw OpenFL and not Flixel?
+That is a wonderful question!  
+...   
+🤷
+
+## What is the best kind of pizza?
+Pineapple, of course
