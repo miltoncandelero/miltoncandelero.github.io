@@ -40,9 +40,9 @@ tx & ty & w
 Well, I kinda lied since `u` `v` and `w` don't really exist and can't be used, so the matrix that you will use looks like this:
 
 $$ \begin{bmatrix}
-a = Scale X & b Skew Y \\
-c = Skew X & d Scale Y \\
-tx = Position X & ty = Position Y 
+Scale X & Skew Y & 0\\
+Skew X & Scale Y & 0\\
+Position X & Position Y & 1 
 \end{bmatrix}  $$
 
 *(I have actually a post-it with this reference matrix on my screen)*
@@ -50,9 +50,11 @@ tx = Position X & ty = Position Y
 But I hear you saying: *Hey, there is no "Rotation" field on your matrix. Why are you talking about this thing if it can't rotate?*  
 Well, the thing is that rotation is a crazy combination of all the fields. Rotation is achieved with a matrix that looks like this:
 
-```| cosine(angle) |  sine(angle)  |
-|  -sine(angle) | cosine(angle) |
-|       0       |       0       |```
+$$ \begin{bmatrix}
+\cosine(\alpha) & \sine(\alpha) & 0\\
+-\sine(\alpha) & \cosine(\alpha) & 0\\
+0 & 0 & 1 
+\end{bmatrix}  $$
 
 Whenever you touch the `rotation` variable on your `DisplayObject` OpenFL does all that crazy matrix transformations for you.
 
