@@ -11,12 +11,16 @@ tags:
 I am Milton Candelero. I am a game programmer from Argentina.  
 A random name generator (circa 2007) generated the name *Elemental Code* and I took it as mine, so you can find me under that alias.
 
-<p  style="text-align:center"><img src="/assets/images/me.jpg" alt="it's a me" width="200"/></p>
+You can always find my crazy experiments / tech demos on [Itch.io](https://elementalcode.itch.io/)
 
-I am currently working for an company called Killabunnies and I specialize in making Haxe/OpenFL HTML5 games.
-
+I am currently working for an company called Killabunnies and I specialize in making Haxe/OpenFL HTML5 games.  
 These are some of the games we've done
 
+[Mighty Magiswords: Double Trouble in Mirror Castle](https://www.cartoonnetwork.co.uk/games/mighty-magiswords-double-trouble-in-mirror-castle)
+
+[Tom & Jerry: Don't make a mess](http://www.boomeranghq.net/games/tom-and-jerry-dont-make-a-mess)
+
+[We Bare Bears: CartoonCon](https://www.cartoonnetwork.com.ar/juego/cartooncon/play)
 
 ---
 
