@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "Making a web/mobile game: Resize vs Responsive"
 sub_title: "Do we set resize to true and call it a day? or de we make things the right way?"
 excerpt_separator: "<!--more-->"
