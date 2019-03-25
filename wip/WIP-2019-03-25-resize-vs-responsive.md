@@ -12,7 +12,8 @@ tags:
   - responsive
 ---
 If you are making web games you probably already use the "resize" property in your project.xml  
-It allows you to simply *stretch* your game to match the target resolution without loosing the original aspect ratio. The downside is that you get ugly black bars where the ratio didn't match.  
+It allows you to simply *stretch* your game to match the target resolution without loosing the original aspect ratio.  
+The downside is that you get ugly black bars where the ratio didn't match.  
 Wouldn't it be cool if we could have an image to bleed out instead of those black bars?  
 Join me in this marvelous journey into the realm of *responsiveness...*  
 
@@ -39,9 +40,9 @@ Let's begin with the basics: **How to make the game resize to any resolution wit
 Simply set the `height` and `width` to zero. *(I think `resizable` becomes automatically true when those are zero but it can't hurt to add it, right?)*
 
 ```xml
-	<window width="0" height="0" resizable="true" />
+<window width="0" height="0" resizable="true" />
 ```
-If we test it we will see that now our game (or what actually bleeds out of our game) fills the screen... but there is no resizing!
+If we test it we will see that now our game (or what bleeds out of our game) fills the screen... but there is no resizing!
 
 Of course there isn't. This resizes the container. We will need to play with the scale of our game.   
 *(It would be really useful if you have your entire game inside a single container instead of just cluttering your `Main.hx`)*
@@ -63,19 +64,19 @@ Let's find a stage and add that event. *(Some creative freedoms where taken. Let
 ```js
 class Main extends Sprite 
 {
-	var game:Game;
+  var game:Game;
 
-	public function new() 
-	{
-		super();
+  public function new() 
+  {
+    super();
 
     game = new Game();
-		addChild(game);
+    addChild(game);
 
     // Pick ONLY ONE of the following:
 
     // Add it to the "Main" sprite. This is good enough.
-		addEventListener(Event.RESIZE,onResize);
+    addEventListener(Event.RESIZE,onResize);
 
     // The "stage" object is better but only exists after the sprite was addChild()'ed.
     // (Main is an exception to this rule and exists all the time)
@@ -83,12 +84,12 @@ class Main extends Sprite
 
     // This is the proper way of reaching the stage from wherever you might be.
     Lib.current.stage.addEventListener(Event.RESIZE,onResize);
-	}
-	
-	function onResize(e:Event):Void 
-	{
+  }
+  
+  function onResize(e:Event):Void 
+  {
     trace ("YO BOI, WE RESIZED");
-	}
+  }
 }
 ```
 
@@ -104,22 +105,22 @@ Try this
 ```js
 class Main extends Sprite 
 {
-	var game:Game;
+  var game:Game;
 
-	public function new() 
-	{
-		super();
+  public function new() 
+  {
+    super();
 
     game = new Game();
-		addChild(game);
+    addChild(game);
 
     Lib.current.stage.addEventListener(Event.RESIZE,onResize);
-	}
-	
-	function onResize(e:Event):Void 
-	{
+  }
+  
+  function onResize(e:Event):Void 
+  {
     trace ("YO BOI, current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
-	}
+  }
 }
 ```
 
@@ -164,27 +165,27 @@ To do this we could do an `if()...else...` clause or we could use the already do
 ```js
 class Main extends Sprite 
 {
-	var game:Game;
+  var game:Game;
 
-	public function new() 
-	{
-		super();
+  public function new() 
+  {
+    super();
 
     game = new Game();
-		addChild(game);
+    addChild(game);
 
     Lib.current.stage.addEventListener(Event.RESIZE,onResize);
-	}
-	
-	function onResize(e:Event):Void 
-	{
+  }
+  
+  function onResize(e:Event):Void 
+  {
     trace ("YO BOI, current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
 
     game.scaleX = game.scaleY = 1; //This is important if we use the "width" and "height" properties of your game!
     var newScaleX:Float = Lib.current.stage.stageWidth/game.width;
     var newScaleY:Float = Lib.current.stage.stageHeight/game.height;
     game.scaleX = game.scaleY = Math.min(newScaleX,newScaleY);
-	}
+  }
 }
 ```
 
@@ -213,24 +214,24 @@ Instead of using `Math.min` we use `Math.max`
 ```js
 class Main extends Sprite 
 {
-	var game:Game;
+  var game:Game;
   var coolBackground:Bitmap;
 
-	public function new() 
-	{
-		super();
+  public function new() 
+  {
+    super();
 
     coolBackground = new Bitmap(Assets.getBitmapData("assets/img/yourCoolBackground.png"));
     addChild(coolBackground);
 
     game = new Game();
-		addChild(game);
+    addChild(game);
 
     Lib.current.stage.addEventListener(Event.RESIZE,onResize);
-	}
-	
-	function onResize(e:Event):Void 
-	{
+  }
+  
+  function onResize(e:Event):Void 
+  {
     trace ("YO BOI, current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
 
     game.scaleX = game.scaleY = 1; //This is important if we use the "width" and "height" properties of your game!
@@ -246,7 +247,7 @@ class Main extends Sprite
     coolBackground.scaleX = coolBackground.scaleY = Math.max(newScaleX,newScaleY); //here we set the max
     coolBackground.x = (Lib.current.stage.stageWidth - coolBackground.width) / 2;
     coolBackground.y = (Lib.current.stage.stageHeight - coolBackground.height) / 2;
-	}
+  }
 }
 ```
 
