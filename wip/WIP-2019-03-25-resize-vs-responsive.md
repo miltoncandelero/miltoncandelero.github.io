@@ -119,7 +119,7 @@ class Main extends Sprite
   
   function onResize(e:Event):Void 
   {
-    trace ("YO BOI, current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
+    trace ("current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
   }
 }
 ```
@@ -179,9 +179,9 @@ class Main extends Sprite
   
   function onResize(e:Event):Void 
   {
-    trace ("YO BOI, current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
+    trace ("current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
 
-    game.scaleX = game.scaleY = 1; //This is important if we use the "width" and "height" properties of your game!
+    game.scaleX = game.scaleY = 1; //This is important if we use the width and height vars of your game
     var newScaleX:Float = Lib.current.stage.stageWidth/game.width;
     var newScaleY:Float = Lib.current.stage.stageHeight/game.height;
     game.scaleX = game.scaleY = Math.min(newScaleX,newScaleY);
@@ -232,9 +232,9 @@ class Main extends Sprite
   
   function onResize(e:Event):Void 
   {
-    trace ("YO BOI, current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
+    trace ("current screen size: " + Lib.current.stage.stageWidth + " by " + Lib.current.stage.stageHeight);
 
-    game.scaleX = game.scaleY = 1; //This is important if we use the "width" and "height" properties of your game!
+    game.scaleX = game.scaleY = 1; //This is important if we use the width and height vars of your game
     var newScaleX:Float = Lib.current.stage.stageWidth/game.width;
     var newScaleY:Float = Lib.current.stage.stageHeight/game.height;
     game.scaleX = game.scaleY = Math.min(newScaleX,newScaleY);
