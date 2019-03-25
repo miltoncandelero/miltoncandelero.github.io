@@ -152,7 +152,7 @@ var newScaleY:Float = Lib.current.stage.stageHeight/game.height;
 
 If we assign directly those values to `scaleX` and `scaleY` we will see our game resize but also deform as the aspect ratio was violently changed from 9:16 to 4:3  
 We need to pick only one of those values and use it for both `scaleX` and `scaleY`  
-To do so, we answer this question:
+To do so, we answer this question:  
 *Do I want to **fit** inside of the screen or do I want to **bleed** outside of the screen?*
 
 Think about it: 
