@@ -15,6 +15,7 @@ If you are making web games you probably already use the "resize" property in yo
 It allows you to simply *stretch* your game to match the target resolution without loosing the original aspect ratio.  
 The downside is that you get ugly black bars where the ratio didn't match.  
 Wouldn't it be cool if we could have an image to bleed out instead of those black bars?  
+
 Join me in this marvelous journey into the realm of *responsiveness...*  
 
 <!--more-->
