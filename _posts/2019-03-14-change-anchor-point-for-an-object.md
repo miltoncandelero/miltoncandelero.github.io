@@ -11,7 +11,7 @@ tags:
   - game development
 ---
 You have your graphic, you just need to rotate it 90º. You set the rotation variable and.... Wait... where did it go?   
-Your platformer character has to turn arround, just set scaleX to -1 and.... Wait... why did it step left?   
+Your platformer character has to turn around, just set scaleX to -1 and.... Wait... why did it step left?   
 
 If this is you, you are probably suffering from the fact that the anchor point for all objects in OpenFL is located on the top-left-most point of it.  
 But... there must be a simple way to set the anchor right?... Right? 😰  
@@ -46,7 +46,7 @@ Position X & Position Y & 1
 
 *(I have actually a post-it with this reference matrix on my screen)*
 
-Let's tackle a simple problem: You want to rotate your sprite arround a point that is not the default `0,0` top-left anchor.  
+Let's tackle a simple problem: You want to rotate your sprite around a point that is not the default `0,0` top-left anchor.  
 But there is no field *rotation* on that matrix!  
 The rotation is achieved with a matrix that looks like this:
 
@@ -96,14 +96,14 @@ Well, matrix math will get more and more complicated. That's why I use and recom
 ## Abusing the Parent-Child relationships.
 *Things got darker than what I expected* 😐
 
-We are going to *abuse* the fact that a parent transformation cascades to all his childrens. Think of it as stacking trays or pinning together squares of paper with thumbtacks.
+We are going to *abuse* the fact that a parent transformation cascades to all his children. Think of it as stacking trays or pinning together squares of paper with thumbtacks.
 
 Let's begin with *Display List 101*:
 * Everything that is drawn on screen was added as a child of a `Display Object Container`.
   * The Daddy of them all is an object called `stage`.
 * The class `Sprite` is a wonderful `Display Object Container`.
   * The class `Bitmap` is **not** a container.
-* A `Display Object Container` will transform all his childs relative to itself.
+* A `Display Object Container` will transform all his children relative to itself.
   * Moving, scaling and **rotating** a parent will affect his children.
 
 *(If this whole "DisplayList" thing is confusing you, I might suggest seeing a [basic tutorial](http://www.republicofcode.com/tutorials/flash/as3displaylist/) to understand how it works)*
@@ -125,7 +125,7 @@ stage.addChild(a);
 a.x = a.y = 50;
 ```
 
-We make two sprites, add some vector graphics to tell them appart and add `b` as a child of `a`.  
+We make two sprites, add some vector graphics to tell them apart and add `b` as a child of `a`.  
 We add `a` to the stage and move it away from the top left corner of the screen.  
 `b` is stuck to `a`, so it will follow it and they will look overlapping.
 
@@ -136,15 +136,15 @@ b.y = -b.height /2;
 ```
 
 I just moved `b` to the left and up by *half his own size*.  
-This means that the `0,0` point of object `a` (The inmovable anchor point) is now visualy **in the same place as the center of square `b`!**  
+This means that the `0,0` point of object `a` (The immovable anchor point) is now visually **in the same place as the center of square `b`!**  
 What do you think it will happen if we rotate `a`?
 
 ```js
 a.rotation = 45;
 ```
 
-Well, what we expected: `a` rotated arround that stupid top left corner... but... wait...  
-The transformation of `a` that *cascaded* to `b` had him rotating arround `a`'s anchor... and as we saw earlier, that point is the center of `b`!  
+Well, what we expected: `a` rotated around that stupid top left corner... but... wait...  
+The transformation of `a` that *cascaded* to `b` had him rotating around `a`'s anchor... and as we saw earlier, that point is the center of `b`!  
 **We just found a way to create our own anchor point for `b`!**
 
 The formula looks like this:
