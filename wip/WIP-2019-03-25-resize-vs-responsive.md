@@ -141,7 +141,7 @@ Let's say we envision our game to run in a portrait mode of **360 by 640** but w
 We need to find the `ratio` between the screen and our game. Let's answer this question:  
 *How many times my game fits in the screen?*
 
-$$ ratio = \frac{screen}{game}
+$$ ratio = \frac{screen}{game} $$
 
 now in code:
 
