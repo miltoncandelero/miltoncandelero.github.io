@@ -13,7 +13,7 @@ A random name generator (circa 2007) generated the name *Elemental Code* and I t
 
 You can always find my crazy experiments / tech demos on [Itch.io](https://elementalcode.itch.io/)
 
-I am currently working for an company called Killabunnies and I specialize in making Haxe/OpenFL HTML5 games.  
+I am currently working for a company called Killabunnies and I specialize in making HTML5 games.  
 These are some of the games we've done
 
 [Mighty Magiswords: Double Trouble in Mirror Castle](https://www.cartoonnetwork.co.uk/games/mighty-magiswords-double-trouble-in-mirror-castle)
@@ -24,7 +24,7 @@ These are some of the games we've done
 
 ---
 
-# And now, question that nobody asked!
+# And now, a question that nobody asked!
 
 ## Why a blog?
 I realized that a lot of the knowledge I got by banging rocks together could be useful for other people.  

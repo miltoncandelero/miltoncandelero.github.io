@@ -31,7 +31,7 @@ Try playing with this variable and you will see the different results.
 You should get a stretch but with the aspect ratio is preserved by adding black bars to the sides (or top and bottom) of your game.   
 
 And that maybe is enough for you!   
-If your game will be played in a iframe inside another website (think Kongregate, NewGrounds, itch.io, etc), you can set a ratio or size of the frame and your game will resize and never look ugly.
+If your game will be played in an iframe inside another website (think Kongregate, NewGrounds, itch.io, etc), you can set a ratio or size of the frame and your game will resize and never look ugly.
 
 **But what if you need your game to run directly on a phone and resize to cover the full screen of the phone?**
 
@@ -52,7 +52,7 @@ Let's list some bases we need to cover:
 - We need to resize things when the screen size changes
   - We need to know the actual size of the screen
 - We need to keep our aspect ratio intact and *fit* inside the screen
-  - We want a image to *bleed out* where we can't keep up due to our aspect ratio
+  - We want an image to *bleed out* where we can't keep up due to our aspect ratio
 
 Let's tackle them one by one and then mix them up all together.
 
@@ -137,7 +137,7 @@ And how do we get this magic `newScale`? by doing some hardcore **MATH**
 *(maybe not that hardcore)*
 
 Let's say we envision our game to run in a portrait mode of **360 by 640** but we need to run on a screen that has a resolution of **800 by 600**
-*(This would be a super worst case scenario where we developed for a 9:16 ratio and are trying to run in a 4:3 ratio)*
+*(This would be a super worst-case scenario where we developed for a 9:16 ratio and are trying to run in a 4:3 ratio)*
 
 We need to find the `ratio` between the screen and our game. Let's answer this question:  
 *How many times my game fits in the screen?*
@@ -255,7 +255,7 @@ class Main extends Sprite
 And that would be all on how to make your game truly responsive instead of just resizing and having black bars!  
 This can be useful for a lot of things. Just some suggestions for you:
 
-- Keep the `scaleX` and `scaleY` integer (with `Math.floor`) to have a pixel perfect resize
+- Keep the `scaleX` and `scaleY` integer (with `Math.floor`) to have a pixel-perfect resize
 - Instead of just resizing everything, move around your UI and adapt to wider or taller screens
 - Maybe you just want to fill *a fraction* of the screen. Try to find where you need to do that extra math
 

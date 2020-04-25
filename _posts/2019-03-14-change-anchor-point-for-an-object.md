@@ -10,8 +10,8 @@ tags:
   - haxe
   - game development
 ---
-You have your graphic, you just need to rotate it 90º. You set the rotation variable and.... Wait... where did it go?   
-Your platformer character has to turn around, just set scaleX to -1 and.... Wait... why did it step left?   
+You have your graphic, you just need to rotate it 90º. You set the rotation variable and... Wait... where did it go?   
+Your platformer character has to turn around, just set scaleX to -1 and... Wait... why did it step left?   
 
 If this is you, you are probably suffering from the fact that the anchor point for all objects in OpenFL is located on the top-left-most point of it.  
 But... there must be a simple way to set the anchor right?... Right? 😰  
@@ -88,12 +88,12 @@ public function rotateAroundPoint(object:DisplayObject, center:Point, angleDegre
 The fact that the Matrix object has the `translate` and `rotate` methods saves us from having to do Matrix Math.
 
 Testing this you might realize something: **This doesn't *set* an angle, this just adds that angle to whatever angle we had before!**  
-On top of that, this only works for rotation! What if I want to scale or move using an anchor point?   
+On top of that, this only works for the rotation! What if I want to scale or move using an anchor point?   
 Well, matrix math will get more and more complicated. That's why I use and recommend the next method...
 
 ---
 
-## Abusing the Parent-Child relationships.
+## Abusing Parent-Child relationships.
 *Things got darker than what I expected* 😐
 
 We are going to *abuse* the fact that a parent transformation cascades to all his children. Think of it as stacking trays or pinning together squares of paper with thumbtacks.
@@ -238,7 +238,7 @@ class Image extends Sprite
 }
 ```
 
-This is looking good. But you might note something: If we change the anchor point, the asset on screen will move since the anchor point now is in a different place.  
+This is looking good. But you might note something: If we change the anchor point, the asset on the screen will move since the anchor point now is in a different place.  
 Let's fix that by moving the container to counteract the change.  
 Our final class will look like this:
 
