@@ -50,15 +50,15 @@ Let's make a table
 
 | Haxe | Typescript |
 |---|---|
-| `var` | `let` & `const`</br>*(`var` exists but it's evil and you shouldn't use it)* |
+| `var` | `let` & `const`<br>*(`var` exists but it's evil and you shouldn't use it)* |
 | `typedef` | `interface` |
-| `for(e in arr)` | `for(e of arr)`</br>*(the `for in` version exists but does a different thing!)* |
-| `switch` cases never fall through</br>*(the keyword `break` isn't needed)* | `switch` cases do fall through and you need to put your `break`! |
+| `for(e in arr)` | `for(e of arr)`<br>*(the `for in` version exists but does a different thing!)* |
+| `switch` cases never fall through<br>*(the keyword `break` isn't needed)* | `switch` cases do fall through and you need to put your `break`! |
 | `Int` & `Float` | `number` |
 | `Array<Thingy>` | `Thingy[]`  |
 | `()->{}` | `()=>{}` |
 | `new(){}` | `constructor(){}` |
-| only `null` exists</br>*(anything that you don't set, is null)* | `null` is the null value and `undefined` means you didn't set it |
+| only `null` exists<br>*(anything that you don't set, is null)* | `null` is the null value and `undefined` means you didn't set it |
 | everything by default is `private` | everything by default is `public` |
 | overriding methods need the keyword `override` | you just declare the new method with the same name |
 
