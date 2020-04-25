@@ -47,7 +47,7 @@ This is not a small feat, however, we were mostly making HTML5 games and when th
 ## Making the leap
 
 Let's make a table
-`var`
+
 | Haxe | Typescript |
 |---|---|
 | `var` | `let` & `const`</br>*(`var` exists but it's evil and you shouldn't use it)* |
