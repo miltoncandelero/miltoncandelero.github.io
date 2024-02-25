@@ -2,7 +2,7 @@
 layout: page
 title: "OpenFL and PixiJS: mind the gap"
 sub_title: "How and why did I change?"
-excerpt_separator: "<!--more-->"
+excerpt: "When I reached Killabunnies I was handled OpenFL 3 and had to start making games... and making games I did.<br>That was 3 years ago.<br>Earlier this year I was thrown into a scary world called Babylonjs and threw the rest of my team into another scary world called PixiJS.<br>Join me on this magic carpet ride as I show you the good, the bad, and the ugly of this technological leap."
 categories:
   - PixiJS
 elements:
@@ -13,12 +13,12 @@ elements:
   - vscode
   - game development
 ---
+# OpenFL and PixiJS: mind the gap
+
 When I reached Killabunnies I was handled OpenFL 3 and had to start making games... and making games I did.  
 That was 3 years ago.  
 Earlier this year I was thrown into a scary world called Babylonjs and threw the rest of my team into another scary world called PixiJS.  
 Join me on this magic carpet ride as I show you the good, the bad, and the ugly of this technological leap.  
-
-<!--more-->
 
 Let's start from the bottom:
 

@@ -2,7 +2,8 @@
 layout: post
 title: "How to change the anchor point of an object in OpenFL"
 sub_title: "Rotate and scale are two big enemies when working with OpenFL"
-excerpt_separator: "<!--more-->"
+excerpt: "You have your graphic, you just need to rotate it 90º. You set the rotation variable and... Wait... where did it go? <br>Your platformer character has to turn around, just set scaleX to -1 and... Wait... why did it step left? <br><br>If this is you, you are probably suffering from the fact that the anchor point for all objects in OpenFL is located on the top-left-most point of it.<br>But... there must be a simple way to set the anchor right?... Right? 😰  
+"
 categories:
   - OpenFL
 tags:
@@ -10,12 +11,13 @@ tags:
   - haxe
   - game development
 ---
+# How to change the anchor point of an object in OpenFL
+
 You have your graphic, you just need to rotate it 90º. You set the rotation variable and... Wait... where did it go?   
 Your platformer character has to turn around, just set scaleX to -1 and... Wait... why did it step left?   
 
 If this is you, you are probably suffering from the fact that the anchor point for all objects in OpenFL is located on the top-left-most point of it.  
 But... there must be a simple way to set the anchor right?... Right? 😰  
-<!--more-->
 
 Well, sadly the answer is **no**  
 There is no simple way of setting the anchor of a DisplayObject in a simple variable and forget about it.

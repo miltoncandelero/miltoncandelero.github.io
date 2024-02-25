@@ -2,7 +2,7 @@
 layout: post
 title: "Making a web/mobile game: Resize vs Responsive"
 sub_title: "Do we set resize to true and call it a day? or de we make things the right way?"
-excerpt_separator: "<!--more-->"
+excerpt: "If you are making web games you probably already use the \"resize\" property in your project.xml<br>It allows you to simply *stretch* your game to match the target resolution without loosing the original aspect ratio.<br>The downside is that you get ugly black bars where the ratio didn't match.<br>Wouldn't it be cool if we could have an image to bleed out instead of those black bars?<br><br>Join me in this marvelous journey into the realm of *responsiveness...*"
 categories:
   - OpenFL
 tags:
@@ -11,14 +11,14 @@ tags:
   - game development
   - responsive
 ---
+# Making a web/mobile game: Resize vs Responsive
+
 If you are making web games you probably already use the "resize" property in your project.xml  
 It allows you to simply *stretch* your game to match the target resolution without loosing the original aspect ratio.  
 The downside is that you get ugly black bars where the ratio didn't match.  
 Wouldn't it be cool if we could have an image to bleed out instead of those black bars?  
 
 Join me in this marvelous journey into the realm of *responsiveness...*  
-
-<!--more-->
 
 Let's begin with a brush up on how to make a game just resizable.   
 Go into your `project.xml` and locate (or add) something that looks like this:
