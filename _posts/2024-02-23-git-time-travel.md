@@ -2,7 +2,7 @@
 layout: post
 title: "How to Time Travel in Git"
 sub_title: "Git is a time machine, no need to bring your own!"
-excerpt: "<br>In this brief article, we will go over the two main ways to time travel in Git.<br>I will make parallelism to TV, Books, Movies, Comics and pretty much any kind of media that has time travel to explain this.<br>Join us as we create paradoxes, become our own grandpas, and save Barry's Mom one more time!"
+excerpt: "In this brief article, we will go over the two main ways to time travel in Git.<br>I will make parallelism to TV, Books, Movies, Comics and pretty much any kind of media that has time travel to explain this.<br>Join us as we create paradoxes, become our own grandpas, and save Barry's Mom one more time!"
 categories:
   - Unreal Engine
   - Git
