@@ -39,7 +39,7 @@ This magical piece of code lets you set the value of your object to a variable a
 
 If you have no binder, MVVM gets _very_ hard to justify.
 
-![](/assets/images/viewmodel/MVVM.png)
+[![](/assets/images/viewmodel/MVVM.png) (Open in new tab)](/assets/images/viewmodel/MVVM-Background.png){:target="_blank"}
 
 ## Reasons to use MVVM
 
@@ -90,7 +90,7 @@ We use the UI elements at our disposal to create the nice looking UI
 	- Current and next stats
 	- Upgrade button
 
-![](/assets/images/viewmodel/View.png)
+[![](/assets/images/viewmodel/View.png) (Open in new tab)](/assets/images/viewmodel/View-Background.png){:target="_blank"}
 
 #### Binder
 We use the binder layer to connect our view to our ViewModel so our View updates automagically
@@ -111,7 +111,7 @@ We have the following objects:
 	- Knows all tower types with their stats and assets per level.
 	- Has the function to modify a tower asset, level and stats
 
-![](/assets/images/viewmodel/Model.png)
+[![](/assets/images/viewmodel/Model.png) (Open in new tab)](/assets/images/viewmodel/Model-Background.png){:target="_blank"}
 
 ### ViewModel
 Let's glue things together!  
@@ -144,7 +144,8 @@ I will try to briefly explain where the data comes from and where it goes to.
 	- It gets forwarded to the Shop in the Game with the correct parameters
 
 
-![](/assets/images/viewmodel/ViewModel.png)  
+[![](/assets/images/viewmodel/ViewModel.png) (Open in new tab)](/assets/images/viewmodel/ViewModel-Background.png){:target="_blank"}
+
 _(remember, dotted arrows are "events-driven" connections and full arrows are direct calls)_
 
 
