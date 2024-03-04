@@ -10,8 +10,7 @@ tags:
   - user interface
   - game development
 ---
-# Model View ViewModel for Game Devs
-## What is MVVM?
+# What is MVVM?
 Ok, this comes from the boring app world. It means **Model View ViewModel**. Let's define the first two concepts and how they apply to video games and then tackle the third one
 
 - **View**: The User Interface (UI) layer. Only the visual part, the UI elements, controls, components, whatever you want to call them. Nothing more, not the information they show, only enough code to render on screen and visually behave as you want them.  
@@ -27,7 +26,7 @@ It's a magical _thing_ that collects, computes, calculates, remembers and or inv
 
 The MVVM _pattern_ is then a way of _decoupling_ your **Model** (Game) from your **View** (User Interface)
 
-### The secret that nobody tells you about MVVM
+## The secret that nobody tells you about MVVM
 
 Everybody that talks about MVVM will skip a **crucial** detail: There is a 4th part that makes the magic happen.
 
@@ -41,7 +40,7 @@ If you have no binder, MVVM gets _very_ hard to justify.
 
 [![](/assets/images/viewmodel/MVVM.png) (Open in new tab)](/assets/images/viewmodel/MVVM-Background.png){:target="_blank"}
 
-## Reasons to use MVVM
+# Reasons to use MVVM
 
 - Testability: If you are the kind of person to write Unit Tests, this is for you (I am not that kind of person)
 - Reusability: You can make different UI elements that show the same data, since the data is collected and calculated in a ViewModel.
@@ -51,7 +50,7 @@ If your UI depends on a ViewModel, you can make a "Mockup" ViewModel that instea
 - Discourage polling: As mentioned before, all MVVM work thanks to a magical thingy that _binds_ UI elements to the ViewModel. This magical thingy changes your UI when **and only when** the information you need to show changes.  
 Another way of updating UI is called _polling_, and it means "asking every frame if the data changed". It's the "Are we there yet?" of UIs and should be avoided whenever possible. (Without the ViewModel, Unreal Engine default "Bindings" for UMG use polling. It's quite bad)
 
-### Some examples of where ViewModel can save you
+## Some examples of where ViewModel can save you
 
 Does your PlayerHealthComponent (or wherever you store it) has a `GetHealthPercent()` method? Why though? How does it affect the Game? Do enemies care percentage? Do guns care?  
 If you have these kinds of functions only for UI stuff, you are boggling down your character with things that don't matter for the Game.  
@@ -69,7 +68,7 @@ Your shop button needs to check the amount of money an item cost, how much money
 How many points of contact with the _Game_ did that single purchase button had?  
 **The ViewModel is the one in contact with all the parts of the Game. The UI is only in contact with the ViewModel**
 
-## Theoretical Example: Tower defense upgrade dialog
+# Theoretical Example: Tower defense upgrade dialog
 
 We are making the upgrade dialog for one of our towers in our Tower Defense Game.
 
@@ -79,7 +78,7 @@ Happy path: The user has enough money. When the user clicks the upgrade button w
 
 Unhappy path: The user doesn't have enough money. The upgrade button is grayed out. Clicking the button does nothing.
 
-### View
+## View
 
 We use the UI elements at our disposal to create the nice looking UI
 - Player coin counter
@@ -92,10 +91,10 @@ We use the UI elements at our disposal to create the nice looking UI
 
 [![](/assets/images/viewmodel/View.png) (Open in new tab)](/assets/images/viewmodel/View-Background.png){:target="_blank"}
 
-#### Binder
+### Binder
 We use the binder layer to connect our view to our ViewModel so our View updates automagically
 
-### Model
+## Model
 We have the following objects:
 - Player Wallet: 
 	- Knows how many coins the player owns
@@ -113,7 +112,7 @@ We have the following objects:
 
 [![](/assets/images/viewmodel/Model.png) (Open in new tab)](/assets/images/viewmodel/Model-Background.png){:target="_blank"}
 
-### ViewModel
+## ViewModel
 Let's glue things together!  
 I will try to briefly explain where the data comes from and where it goes to.  
 "Computed" fields are fields that don't quite exist as we need them, so we _craft_ them from the data we have
@@ -149,11 +148,11 @@ I will try to briefly explain where the data comes from and where it goes to.
 _(remember, dotted arrows are "events-driven" connections and full arrows are direct calls)_
 
 
-## Now, let's make it using Unreal Engine's ViewModel
+# Now, let's make it using Unreal Engine's ViewModel
 
 (I will do it in blueprints as it's more graphical to explain, but you can find how to do it in C++ in the [official unreal documentation](https://docs.unrealengine.com/5.3/en-US/umg-viewmodel/))
 
-### Activating the plugin
+## Activating the plugin
 
 Ok, the first step is to enable the plugin for ViewModel  
 **Note: ViewModel is still in BETA as the time of writing. The looks can change, but the concepts should remain useful**
@@ -165,7 +164,7 @@ This can be changed in Project Settings -> Widget Designer -> Property Binding R
 
 ![](/assets/images/viewmodel/preventbindings.png)
 
-### Making the View
+## Making the View
 
 Now, let's ~~crudely~~ quickly make this UI  
 This isn't a full UMG tutorial, I assume you have basic knowledge on how to make UIs  
@@ -174,20 +173,19 @@ This isn't a full UMG tutorial, I assume you have basic knowledge on how to make
 ![](/assets/images/viewmodel/uglyUI.png)
 
 
-### "Making" the Model
+## "Making" the Model
 
 And these are the Game things  
 This isn't a full "How to make a tower defense game". These are just husks of what a true TD game needs.  
 The overall idea:
-- The Player pawn 
-	- Keeps the amount of coins (this could be a component or a subsystem)
+- The Player pawn keeps the amount of coins (this could be a component or a subsystem)
 - The Shop has access to the datatable and triggers an upgrade on a tower (this could be a subsystem)
 - The Tower can pew pew things
 - DT_Towers is a _probably ugly_ Excel file your Game Designer _hopefully_ balances
 
 ![](/assets/images/viewmodel/fakegame.png)
 
-### Creating the ViewModel
+## Creating the ViewModel
 
 Now, for the good part! Let's make our **ViewModel**  
 We _probably should_ split the player coins ViewModel from the rest of the tower things. For this example I will do everything together, but there is no hard rule on _how many ViewModels_ you need. Somewhere less than _one per textfield_ and more than _one for the entire game_ is the right amount.  
@@ -203,7 +201,7 @@ And inside... they look like a blueprint
 
 Let's add a variable and see the cool things
 
-#### Field Notify
+### Field Notify
 
 ![](/assets/images/viewmodel/babysfirstnotify.png)
 
@@ -211,13 +209,13 @@ The little _eye_ button shouldn't surprise you... but what is that _bell_?
 That is the "Field Notify" button, and clicking it means that the ViewModel will emit an event every time that variable changes.  
 Turning on that checkbox will change our **Set** blueprint nodes to a **Set with broadcast** nodes
 
-#### Computed Values
+### Computed Values
 What about _Computed values_? Those aren't variables but functions!  
 You need to make your function both **const** and **pure,** and the **Field Notify** will become available.  
 **const** is hidden in the **advanced** dropdown!
 ![](/assets/images/viewmodel/computedfield.png)
 
-#### Chained notifications
+### Chained notifications
 
 Think about this... The "Has enough coins" needs to be re-computed every time one of this happens
 - The player coins changed
@@ -232,7 +230,7 @@ To connect one variable changing to another we:
 
 So, whenever a value is modified, all the _chained_ values are modified.
 
-#### Finished ViewModel
+### Finished ViewModel
 This is our finished viewmodel.  
 
 >But Milton, it doesn't look like the one in the graph above.  
@@ -242,7 +240,7 @@ That's why I am a strong believer in planning less and doing more, but that's an
 
 ![](/assets/images/viewmodel/finalviewmodel.png)
 
-#### The _easy_ part, connecting our View and our ViewModel
+### The _easy_ part, connecting our View and our ViewModel
 
 Open the Viewmodels window from our Widget
 
@@ -275,9 +273,9 @@ And then we click on the Chain icon to connect again to our viewmodel
 
 We can now connect all our properties to all our fields
 
-#### The hard part, who creates the ViewModel and how it connects to the Game?
+### The hard part, who creates the ViewModel and how it connects to the Game?
 
-##### Who creates the ViewModel?
+#### Who creates the ViewModel?
 For the ViewModel creation, unreal gives us some options...  
 (Select your VM in the Viewmodels window and check the details panel)
 
@@ -302,7 +300,7 @@ That **Initialize** Function is **not** usually part of a ViewModel... We will l
 
 Simply creating the Widget asks for the `VM Tower Upgrade` reference, since we set it to manual creation.
 
-##### How do you connect the ViewModel to the rest of the game?
+#### How do you connect the ViewModel to the rest of the game?
 
 We have two ways of changing a ViewModel:
 - **Event Driven**: The ViewModel listens for events in the Game.
@@ -338,7 +336,7 @@ So, in this case, when the tower gets upgraded we tell our viewmodel "Pretend we
 
 ---
 
-## We are done!
+# We are done!
 
 And there it is, we defined MVVM, we made a theoretical example, and we implemented it on Unreal Engine!
 
