@@ -20,3 +20,5 @@ You can find me
 - [Twitter](https://twitter.com/MiltonCandelero)
 - [LinkedIn](https://www.linkedin.com/in/miltoncandelero/)
 - [GitHub](https://github.com/miltoncandelero)
+
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Buy me a Coffee', '#d28445', 'H2H1VDYEI');kofiwidget2.draw();</script> 
