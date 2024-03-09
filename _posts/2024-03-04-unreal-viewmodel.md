@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Model View ViewModel for Game Devs"
-sub_title: "Git is a time machine, no need to bring your own!"
+sub_title: "UI Doesn't have to be hard!"
 excerpt: "How to turn something meant for the boring app world into something useful for programming our game UIs"
 categories:
   - Unreal Engine
