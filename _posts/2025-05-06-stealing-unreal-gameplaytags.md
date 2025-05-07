@@ -2,11 +2,12 @@
 layout: post
 title: "What can we learn (and steal) from Unreal Engine GameplayTags"
 sub_title: "Stealing is bad"
-excerpt: "If you ever worked long enough with Unreal Engine, you should've come across _Gameplay Tags_. I don't mean the "Name" tags that Unreal uses (although those are pretty cool too) but the `Damage.Elemental.Fire kinda thingy."
+excerpt: "If you ever worked long enough with Unreal Engine, you should've come across _Gameplay Tags_. I don't mean the Name tags that Unreal uses (although those are pretty cool too) but the Damage.Elemental.Fire kinda thingy."
 categories:
   - Unity
 tags:
   - unity
+  - unreal engine
   - game development
 ---
 # What can we learn (and steal) from Unreal Engine GameplayTags
