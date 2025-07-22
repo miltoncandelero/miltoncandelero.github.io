@@ -18,8 +18,11 @@ Stop me if you've heard this one before: your UI artist asks, "Hey, can we add s
 What if I told you... you can color _outside_ the lines? What if I told you that you can **render outside the quad**?
 
 Open your mind
+<div align="center">
 
 ![](/assets/images/outsidethelines/openyourmind.png)
+
+</div>
 
 ## Let's go with the _naive_ approach first
 
@@ -27,29 +30,47 @@ Ok, so our artist asked us to draw, in shader, around an image that goes very cl
 
 Take this sword png as an example.
 
+<div align="center">
+
 ![](/assets/images/outsidethelines/originalsword.png)
+
+</div>
 
 The "only way" to do this, I thought, was to _scale down_ the image in shader (`Scale UV by Center`), and use the extra space to draw any cool effects
 
+<div align="center">
+
 ![](/assets/images/outsidethelines/swordofperfectlyaveragesize.png)
+
+</div>
 
 (The blue square is another widget in the background to give you a size reference.)
 
 But now, I need to make the UMG Image widget larger to compensate for shrinking the sword!
 
+<div align="center">
+
 ![](/assets/images/outsidethelines/brokenlayout.png)
+
+</div>
 
 And now my layout is all wrong!
 
+<div align="center">
+
 ![](/assets/images/outsidethelines/thisisyou.jpg)
+
+</div>
 
 ## Black magic
 
-It all began one day in the [Unreal Garden Discord server](https://discord.gg/KnWJ2jCSFk), where this image was posted.
+It all began one day in the [Unreal Garden Discord server](https://discord.gg/KnWJ2jCSFk), where this image was posted by [Melchior](https://www.linkedin.com/in/melchior-corgie/).
+
+<div align="center">
 
 ![](/assets/images/outsidethelines/blackmagic.png)
 
-(Thanks to [Melchior](https://www.linkedin.com/in/melchior-corgie/), [Richard](https://bsky.app/profile/rtm223.me), and [Ryan](https://ryandowlingsoka.com/).)
+</div>
 
 If you know a bit about rendering, you know that the allotted space for you to render is **inside** the bounds of the quad that slate will use to show you the material... however, we can clearly see how this is rendering a magenta circle **outside** that space...
 
@@ -65,7 +86,11 @@ We can use the UVs to know what is _left_ and what is _right,_ and we remap the 
 
 Using this new cheat, we can make this!
 
+<div align="center">
+
 ![](/assets/images/outsidethelines/perfectlayout.png)
+
+</div>
 
 ### VICTORY
 
@@ -79,27 +104,43 @@ Well, this is just the proof of concept of the superpower you just unlocked!
 
 With this, you can now do strokes, glows, and drop shadows that won't break your layout!
 
+<div align="center">
+
 ![](/assets/images/outsidethelines/animatedexample.webp)
+
+</div>
 
 ## Give me something useful!
 
 Let's make a Material Function that allows us to pick a _quad scale_ but still gives us the _original_ UVs in case we still want to render inside the quad like lawful legal shader<i>ers</i>.
 
+<div align="center">
+
 ![](/assets/images/outsidethelines/usageexample.png)
 
+</div>
+
 ### MF_UI_ScaleQuad
-https://blueprintue.com/blueprint/wdvprf9o/
+[See in BlueprintUE.com](https://blueprintue.com/blueprint/wdvprf9o/){:target="_blank"}
+
+<div align="center">
 
 [![](/assets/images/outsidethelines/scalesource.png) (Open in new tab)](/assets/images/outsidethelines/scalesource.png){:target="_blank"}
+
+</div>
 
 This one works with a multiplier (e.g., "Make my quad 1.5 times bigger"), but what if you only want to say, "Inflate my quad by 50px"?
 
 ### MF_UI_ResizeQuad
-https://blueprintue.com/blueprint/cro2vhg2/
+[See in BlueprintUE.com](https://blueprintue.com/blueprint/cro2vhg2/){:target="_blank"}
 
 Here, this is a (simpler?) version that takes in the amount of padding (in pixels) to add.
 
+<div align="center">
+
 [![](/assets/images/outsidethelines/paddingsource.png) (Open in new tab)](/assets/images/outsidethelines/paddingsource.png){:target="_blank"}
+
+</div>
 
 ## Important note when using pixel size in UI materials
 
@@ -115,7 +156,7 @@ And this is it; you have now learnt how to break the rules of blueprints!
 
 ---
 
-Once again, thanks to
+Special thanks to
 
 - [Melchior](https://www.linkedin.com/in/melchior-corgie/) for the original implementation (and the screenshot that took my attention)
 
