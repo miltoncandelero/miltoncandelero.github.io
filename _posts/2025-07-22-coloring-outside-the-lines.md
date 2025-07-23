@@ -58,16 +58,36 @@ If you know a bit about rendering, you know that the allotted space for you to r
 
 This shader is ~~abusing~~ using the `Screen Position` output to _scale up_ the rendering space!
 
-First of all, since we are in a _fragment_ shader, we can effectively think of this as running _for every pixel of the widget._
+> Update: I was not only wrong, but I was _confidently wrong,_ which is the most dangerous kind of wrong.
+> 
+> For some unknown reason I thought that the `Screen Position` node was a fragment shader hack. It is not. It's a plain ol' vertex shader. If you already read the old (wrong) version, please forget about it.
+> 
+> Thanks [Richard](https://bsky.app/profile/rtm223.me) for correcting me
 
-Now, what `Screen Position` does is modify where we are rendering all of our pixels in screen space.
+First of all, `Screen Position` happens in the _vertex_ part of the shader. That means our code runs once for each of the _vertices_ of our... mesh?
 
-So, if we just move every pixel to the right by, say, 100px, that would be it; we end up with the widget just translated to the right... but what if we move the left pixels to the left and the right pixels to the right? If we offset them correctly, we would _stretch_ the widget!
+> Mesh? we are in UI, have you gone crazy?
+
+You see, `Slate` (the piece of code in charge of drawing UI in Unreal, below UMG) renders your UI by giving each widget a **Quad**. (not exactly, but stay with me)
+
+A **Quad** is just a fancy name for "two triangles making a rectangle".
+
+![](/assets/images/outsidethelines/quad.png)
+
+Now, what `Screen Position` does is modify where we are putting our vertices on the screen.
+
+So, if we just move every vertex to the right by, say, 100px, that would be it; we end up with the widget just translated to the right...
+
+![](/assets/images/outsidethelines/MovingQuad.png)
+
+But what if we move the left vertices to the left and the right vertices to the right? If we offset them correctly, we would _stretch_ the widget!  
+(Let's also do that up and down, 'kay?)
+
+![](/assets/images/outsidethelines/ExpandedQuad.png)
 
 We can use the UVs to know what is _left_ and what is _right,_ and we remap the `0` to `1` to `-1` to `1` so we can just multiply this new range by the amount we want to _stretch_ and achieve our desired result.
 
 Using this new cheat, we can make this!
-
 
 ![](/assets/images/outsidethelines/perfectlayout.png)
 
@@ -127,7 +147,7 @@ Special thanks to
 
 - [Melchior](https://www.linkedin.com/in/melchior-corgie/) for the original implementation (and the screenshot that took my attention)
 
-- [Richard](https://bsky.app/profile/rtm223.me) for the idea to expand the UI in the vertex shader (even if that is not exactly what is going on)
+- [Richard](https://bsky.app/profile/rtm223.me) for the idea to expand the UI in the vertex shader (~~even if that is not exactly what is going on~~ and correcting me because that's exactly what was going on)
 
 - [Ryan](https://ryandowlingsoka.com/) for demystifying how this would behave around z-order.
 
