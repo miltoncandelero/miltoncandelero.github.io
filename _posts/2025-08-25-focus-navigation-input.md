@@ -21,6 +21,8 @@ In this post, I will try to explain how CommonUI tries to help you with gamepad-
 
 (By this point I will assume that you already added CommonUI to your project and watched/read a couple of tutorials and kinda know what an Activatable Widget is. Even if you think it's just a fancy way to make some widgets visible and others invisible, that's enough. Here you will learn what _other_ things _Activating an Activatable_ does.)
 
+---
+
 ## Glossary and Disambiguation
 
 Let's start with the Vanilla UMG _-VS-_ CommonUI:
@@ -41,6 +43,8 @@ There are very similar words that mean different things. So first check these fa
 - **Selected / Selectable**: A special word reserved for CommonUI Buttons (`UCommonButtonBase`). A "Selectable" button is what I would call a "toggleable" button. Only Buttons can be Selectable. Beyond Buttons, this word is meaningless/confusing.
 
 Now, let's tackle things one by one!
+
+---
 
 ## Focus and Navigation.
 
@@ -93,6 +97,8 @@ The bad ending of Focus. You did not set the focus target, and your Activatable 
 In the **Widget Reflector** (Tools->Debug->Widget Reflector), you can set the "Pick Hit-Testable Items" to "Show Focus".
 
 Now, the focused element will have a green box around it, and in the tree of widgets that the reflector shows, the green highlighted elements are the _focus path_.
+
+---
 
 ## Input Config and Input Routing
 
@@ -179,6 +185,7 @@ W_WidgetName: IsActivated? [true]. LayerId=[58]. [0] Normal Bindings.
 - `LayerId=[58]`: The Layer order. Bigger means foreground-er. The biggest number here becomes the Activatable Root.
 - `[0] Normal Bindings`: How many Keys are bound.
 
+---
 
 ## Selected / Selectable and the UCommonButtonGroupBase
 
