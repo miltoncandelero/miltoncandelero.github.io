@@ -70,7 +70,7 @@ Clicking a Focusable Widget is also a good way to set the focus to that element.
 
 ### What does CommonUI do for Focus and Navigation?
 
-**Activation Focus**: To avoid the focus getting _stuck_ somewhere when you open/close a dialog or panel (whenever an activatable widget gets activated or deactivated), CommonUI will check the "Activatable widget that is both active and on top of everything else" (internally called as the _leftmost active widget in the tree_) and ask it where the focus should be (`GetDesiredFocusTarget`).
+**Activation Focus**: To avoid the focus getting _stuck_ somewhere when you open/close a dialog or panel (whenever an activatable widget gets activated or deactivated), CommonUI will check the "Activatable widget that is both active and on top of everything else" (internally called as the _leafmost active widget in the tree_) and ask it where the focus should be (`GetDesiredFocusTarget`).
 This widget can skip the question (by setting `bSupportsActivationFocus` to false) and in that case, CommonUI will keep asking the active widgets until someone doesn't skip it, in which case you are met with one of many possible outputs:
 
 - `[User %d] Set AutoRestoreTarget`
@@ -109,7 +109,8 @@ Something very common in games is that when you open a menu, your inputs stop mo
 Before CommonUI you had some methods/nodes to call, things like `Set Input Mode to UI/Game` and `Set Show Mouse Cursor`.
 
 ![](/assets/images/focusnavigationinput/dontdothis.png)
-**Don't** use these if you are using CommonUI
+
+**Don't use these if you are using CommonUI**
 
 **Input Config** is a CommonUI tool that helps you with that. **Instead** of calling all those methods to set your inputs exactly how you want them and then remembering to set things back to how they were, Activatable Widgets will ask for a _desired_ `FUIInputConfig` with the method`GetDesiredInputConfig`. 
 
